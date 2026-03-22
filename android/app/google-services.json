@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "817070250097",
+    "project_id": "nova-app-527ae",
+    "storage_bucket": "nova-app-527ae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817070250097:android:c5d994f92190dbd09b23d0",
+        "android_client_info": {
+          "package_name": "com.pratham.nova"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2kzxIKbG8goK9losSkONc_YYXh18nQAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
