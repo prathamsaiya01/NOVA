@@ -35,116 +35,117 @@ class LoginPage extends StatelessWidget {
             ),
           ),
 
-          // 💎 CENTER CONTENT
+          // 💎 CONTENT
           Center(
             child: SingleChildScrollView(
-              child: Container(
-                width: size.width * 1.12,
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
+              child: Column(
+                children: [
 
-                    // 🧊 GLASS CARD (MAIN FRAME)
-                    Image.asset(
-                      'assets/images/glass_card.png',
-                      width: size.width * 1.12,
-                    ),
+                  // 🔷 LOGO (REDUCED GAP)
+                  Image.asset(
+                    'assets/images/nova_logo.png',
+                    height: size.width * 0.44,
+                  ),
 
-                    // 📦 EVERYTHING INSIDE CARD
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 25,
-                        vertical: 35,
+                  const SizedBox(height: 5), // 🔥 reduced gap
+
+                  // 🧊 GLASS CARD + CONTENT
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+
+                      // ✅ BIGGER CARD
+                      Container(
+                        width: size.width * 0.92,
+                        height: size.height * 0.65, // 🔥 increased height
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(35),
+                        ),
+                        child: Image.asset(
+                          'assets/images/glass_card.png',
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
 
-                          // 🔷 BIG LOGO (INSIDE CARD)
-                          Image.asset(
-                            'assets/images/nova_logo.png',
-                            height: size.width * 0.44, // 🔥 BIGGER
-                          ),
+                      // 📦 CONTENT (SLIGHTLY SMALLER)
+                      SizedBox(
+                        width: size.width * 0.72,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
 
-                          const SizedBox(height: 20),
+                            const SizedBox(height: 10),
 
-                          // LOGIN TITLE
-                          Text(
-                            "Login",
-                            style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: size.width * 0.08,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-
-                          const SizedBox(height: 25),
-
-                          _inputField(Icons.email_outlined, "Email"),
-                          const SizedBox(height: 15),
-                          _inputField(Icons.lock_outline, "Password", true),
-
-                          const SizedBox(height: 10),
-
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              "Forgot Password?",
+                            Text(
+                              "Login",
                               style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: size.width * 0.035,
+                                fontSize: 26, // 🔥 slightly reduced
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ),
 
-                          const SizedBox(height: 25),
+                            const SizedBox(height: 20),
 
-                          _signInButton(),
+                            _inputField(Icons.email_outlined, "Email"),
+                            const SizedBox(height: 12),
+                            _inputField(Icons.lock_outline, "Password", true),
 
-                          const SizedBox(height: 20),
+                            const SizedBox(height: 8),
 
-                          Row(
-                            children: [
-                              Expanded(child: Divider()),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: Text(
-                                  "Or",
-                                  style: TextStyle(fontFamily: "Poppins"),
-                                ),
-                              ),
-                              Expanded(child: Divider()),
-                            ],
-                          ),
-
-                          const SizedBox(height: 20),
-
-                          _googleButton(),
-
-                          const SizedBox(height: 20),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Don't have an account? ",
+                            const Align(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                "Forgot Password?",
                                 style: TextStyle(fontFamily: "Poppins"),
                               ),
-                              Text(
-                                "Sign Up",
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w600,
+                            ),
+
+                            const SizedBox(height: 20),
+
+                            _signInButton(),
+
+                            const SizedBox(height: 15),
+
+                            Row(
+                              children: const [
+                                Expanded(child: Divider()),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  child: Text("Or"),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                                Expanded(child: Divider()),
+                              ],
+                            ),
+
+                            const SizedBox(height: 15),
+
+                            _googleButton(),
+
+                            const SizedBox(height: 15),
+
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Don't have an account? ",
+                                  style: TextStyle(fontFamily: "Poppins"),
+                                ),
+                                Text(
+                                  "Sign Up",
+                                  style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
@@ -156,15 +157,15 @@ class LoginPage extends StatelessWidget {
   // 🔤 INPUT FIELD
   static Widget _inputField(IconData icon, String hint, [bool isPassword = false]) {
     return Container(
-      height: 52,
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+      height: 50, // 🔥 slightly reduced
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.85),
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.08),
-            blurRadius: 10,
+            blurRadius: 8,
             offset: const Offset(2, 4),
           )
         ],
@@ -181,10 +182,10 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  // 🔵 SIGN IN BUTTON
+  // 🔵 BUTTON
   static Widget _signInButton() {
     return Container(
-      height: 55,
+      height: 52,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -197,7 +198,7 @@ class LoginPage extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.blue.withOpacity(0.4),
-            blurRadius: 15,
+            blurRadius: 12,
             offset: const Offset(0, 6),
           )
         ],
@@ -208,7 +209,7 @@ class LoginPage extends StatelessWidget {
           style: TextStyle(
             fontFamily: "Poppins",
             color: Colors.white,
-            fontSize: 17,
+            fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -219,7 +220,7 @@ class LoginPage extends StatelessWidget {
   // 🟢 GOOGLE BUTTON
   static Widget _googleButton() {
     return Container(
-      height: 50,
+      height: 48,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.75),
